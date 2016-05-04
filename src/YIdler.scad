@@ -37,13 +37,13 @@ difference()
         translate([50, 0, 0]) rotate([-90, 0, 0]) cylinder(d=mainDiam, h=Length+2);
     }
     
-    translate([5, (Length-beltWidth)/2, -1]) cube([Width, beltWidth, 40]);
+    translate([8, (Length-beltWidth)/2, -1]) cube([Width, beltWidth, 40]);
     
-    translate([8, -1, 9]) rotate([-90, 0, 0]) cylinder(d=4, h=Length+2);
+    translate([9.1, -1, 8]) rotate([-90, 0, 0]) cylinder(d=4, h=Length+2);
     hull()
     {
-        translate([8, 4, 9]) rotate([-90, 0, 0]) cylinder(d=20, h=Length-8, $fn=20);
-        translate([18, 4, 19]) rotate([-90, 0, 0]) cylinder(d=20, h=Length-8, $fn=20);
+        translate([9.1, 5, 8]) rotate([-90, 0, 0]) cylinder(d=18, h=Length-10, $fn=20);
+        translate([19, 5, 19]) rotate([-90, 0, 0]) cylinder(d=18, h=Length-10, $fn=20);
     }
     
     hull()
