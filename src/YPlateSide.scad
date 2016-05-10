@@ -21,6 +21,9 @@ Height = 7;
 
 mainBlock();
 
+translate([0, -5, 0]) mirror([0, 1, 0])
+mainBlock();
+
 module mainBlock()
 difference()
 {
@@ -29,7 +32,7 @@ difference()
     for(i = [-1, 1]) for(j = [-1, 1])
         translate([(SCWidth+i*SCHoleX)/2, (SCLength+j*SCHoleY)/2, -1]) cylinder(d=SCHoleDiam, h=Height+2);
     
-    translate([Width/2, Length-5, -1]) cylinder(d=3.3, h=Height+2, $fn=15);
-    translate([Width/2, Length-5, Height-2]) cylinder(d=6, h=Height+2, $fn=6);
+    translate([Width-5, Length-5, -1]) cylinder(d=3.3, h=Height+2, $fn=15);
+    translate([Width-5, Length-5, Height-2]) cylinder(d=6.2, h=Height+2, $fn=6);
     
 }
