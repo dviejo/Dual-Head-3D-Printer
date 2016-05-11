@@ -40,6 +40,8 @@ difference()
     translate([8, (Length-beltWidth)/2, -1]) cube([Width, beltWidth, 40]);
     
     translate([9.1, -1, 8]) rotate([-90, 0, 0]) cylinder(d=4, h=Length+2);
+    translate([9.1, -1, 8]) rotate([-90, 0, 0]) cylinder(d=8, h=2);
+
     hull()
     {
         translate([9.1, 5, 8]) rotate([-90, 0, 0]) cylinder(d=18, h=Length-10, $fn=20);
