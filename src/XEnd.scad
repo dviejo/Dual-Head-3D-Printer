@@ -26,8 +26,8 @@ Width = 90;
 Length = 22;
 Wall = 6;
 Floor = 7;
-Height = Nema17Width + Floor + 5;
-motorAngle = 25;
+Height = Nema17Width + Floor + 10;
+motorAngle = 27.5;
 
 threadDiam = 13;
 threadHoles = 30; //distance between holes in the nut
@@ -44,6 +44,9 @@ translate([0, -10, 0])
 mirror([0, 1, 0])
 rotate([-90, 0, 0])
 XEndV();
+
+*color("red")
+translate([Width-15, -Length+5-27/2, Floor]) cube([48,27,16]);
 
 module XEndVBody()
 union()
@@ -70,12 +73,12 @@ module XEndVHoles()
         for(i=[-1, 1]) 
             for(j=[-1, 1])
                 translate([i*PlatformHoleSep/2, j*PlatformHoleSep/2,0]) 
-                    cylinder(d=6, h=Nema17Width/2+4);
+                    cylinder(d=6, h=Nema17Width/2+3);
     }
     
     
     //nema 17 housing
-    translate([Width/2+7, -30, Height-16]) rotate([-90, 0, 0])
+    translate([Width/2+7, -30, Height-15]) rotate([-90, 0, 0])
     translate([-Nema17Holes/2, Nema17Holes/2, 0]) rotate(motorAngle) translate([Nema17Holes/2, -Nema17Holes/2, 0])
     {
         for(i=[-1, 1]) 
