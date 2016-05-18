@@ -23,10 +23,10 @@ BeamHoleSep = 25;
 BeamLength = 12.2;
 
 Width = 90;
-Length = 22;
-Wall = 6;
-Floor = 7;
-Height = Nema17Width + Floor + 10;
+Length = 25;
+Wall = 7;
+Floor = 9;
+Height = Nema17Width + Floor + 7;
 motorAngle = 27.5;
 
 threadDiam = 13;
@@ -56,6 +56,14 @@ union()
         cube([threadWidth+2, ThreadPos, ThreadHeight]);
     translate([threadWidth-10, -Length, 0]) 
         cube([Width-threadWidth+10, Length+Wall, Floor]);
+    
+    difference()
+    {
+        translate([threadWidth-10, -Length, 0]) 
+            cube([8, Length+Wall, 25]);
+        translate([threadWidth-11, -Length, 25]) rotate([0, 90, 0])
+            cylinder(d=32, h=10, $fn=4);
+    }
 }
 
 module XEndVHoles()
@@ -93,7 +101,8 @@ module XEndVHoles()
             {
                 cylinder(d=20, h=Height+2);
                 translate([0, -35, 0]) cylinder(d=20, h=Height+2);
-                translate([70, -15, 0]) cylinder(d=20, h=Height+2);
+                translate([25, 2, 0]) cylinder(d=20, h=Height+2);
+                translate([60, -10, 0]) cylinder(d=20, h=Height+2);
             }
 
     }
