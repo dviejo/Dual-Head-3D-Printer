@@ -40,7 +40,7 @@ ThreadPos = 29.3 - 13 - threadLength/2;
 rotate([-90, 0, 0])
 XEndV();
 
-translate([0, -10, 0])
+translate([0, -15, 0])
 mirror([0, 1, 0])
 rotate([-90, 0, 0])
 XEndV();
@@ -54,8 +54,10 @@ union()
     cube([Width, Wall, Height]);
     translate([-10, -ThreadPos+Wall, 0]) 
         cube([threadWidth+2, ThreadPos, ThreadHeight]);
-    translate([threadWidth-10, -Length, 0]) 
-        cube([Width-threadWidth+10, Length+Wall, Floor]);
+    *translate([threadWidth-10, -Length, -5]) 
+        cube([Width-threadWidth+10, Length+Wall, Floor+5]);
+    translate([-10, -Length, -5]) 
+        cube([Width+10, Length+Wall, Floor+5]);
     
     difference()
     {
@@ -114,13 +116,19 @@ module XEndVHoles()
         cylinder(d=3.0, h=Height);
     translate([(threadWidth+threadHoles)/2-10, Wall+1, (ThreadHeight+threadHolesV)/2]) rotate([90, 0, 0])
         cylinder(d=3.0, h=Height);
+    translate([-10-1, -ThreadPos+Wall-30, 0]) cube([threadWidth+1, 30,ThreadHeight]);
+    hull()
+    {
+        translate([threadWidth-10-2, -Length-2 ,-10]) cube([2, 2, 20]);
+        translate([-10-1, -ThreadPos+Wall-Length-2 ,-10]) cube([(threadWidth+10-2)/2, Length+2, 20]);
+    }
     
 
     //XAxis housing
-    translate([15+(467.5-400)/2+12.5, 5-Length, -1]) cylinder(d=3.0, h=Floor+2); 
-    translate([15+(467.5-400)/2+12.5+BeamHoleSep, 5-Length, -1]) cylinder(d=3.0, h=Floor+2);
-    translate([15+(467.5-400)/2+12.5, 5-Length, -1]) cylinder(d=6.5, h=3, $fn=6); 
-    translate([15+(467.5-400)/2+12.5+BeamHoleSep, 5-Length, -1]) cylinder(d=6.5, h=3, $fn=6);
+    translate([15+(467.5-400)/2+12.5, 5-Length, -6]) cylinder(d=3.0, h=Floor+8); 
+    translate([15+(467.5-400)/2+12.5+BeamHoleSep, 5-Length, -6]) cylinder(d=3.0, h=Floor+8);
+    translate([15+(467.5-400)/2+12.5, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6); 
+    translate([15+(467.5-400)/2+12.5+BeamHoleSep, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6);
     translate([15+(467.5-400)/2-0.25, 5-Length-BeamLength/2, Floor-2]) cube([Width, BeamLength, 3]);
 
     //fancy cuts
