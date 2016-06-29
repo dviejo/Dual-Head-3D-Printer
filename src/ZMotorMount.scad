@@ -52,8 +52,12 @@ difference()
     
     //Motor's holes
     for(i=[-1, 1]) for(j=[-1, 1])
-        translate([(Width+i*Nema17Holes)/2, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=3.4, h=Floor+2);
-    translate([Width/2, MotorPos, -1]) cylinder(d=25, h=Floor+2);
+        hull()
+        {
+            translate([(Width+i*Nema17Holes)/2-1.5, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=3.4, h=Floor+2);
+            translate([(Width+i*Nema17Holes)/2+1.5, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=3.4, h=Floor+2);
+        }
+    translate([Width/2, MotorPos, -1]) cylinder(d=27, h=Floor+2);
     
     for(i=[0, 1]) for(j=[0, 1])
         translate([i*Width, j*Length, -1]) rotate(0) cylinder(d=7, h=Height+2, $fn=4);
