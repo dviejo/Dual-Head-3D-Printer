@@ -20,8 +20,8 @@ belt_tooth_ratio = 0.8;
 topWidth = 9;
 topHeight = 8;
 
-leftFront();
-translate([Width+5, 0, 0]) leftFront();
+XPlate();
+translate([Width+5, 0, 0]) XPlate();
 
 translate([-15, 0, 0])
     topArm();
@@ -32,7 +32,7 @@ translate([-39, 0, 0])
 translate([-51, 0, 0])
     topArm(clip=38, clear=23);
 
-module leftFront()
+module XPlate()
 difference()
 {
     union()
@@ -49,7 +49,7 @@ difference()
     {
         translate([9+i, Length-6/2, -1]) cylinder(d=3, h=Height+extraH+2, $fn=15);
         translate([9+i, Length-6/2, Height-2]) cylinder(d=6, h=4, $fn=6);
-        translate([9+i, 10+20, -0.2]) cylinder(d1=6.3, d2=3, h=2.2, $fn=15);
+        translate([9+i, 10+20, -0.1]) cylinder(d1=6.5, d2=3, h=2.2, $fn=15);
     }
 }
 
@@ -60,9 +60,9 @@ difference()
     cube([topWidth, Length, topHeight]);
     
     translate([topWidth/2, 10, -1]) cylinder(d=3, h=topHeight+2, $fn=15);
-    translate([topWidth/2, 10, -0.2]) cylinder(d1=6, d2=3, h=2.2, $fn=15);
+    translate([topWidth/2, 10, -0.1]) cylinder(d1=6.5, d2=3, h=2.2, $fn=15);
     translate([topWidth/2, Length-3, -1]) cylinder(d=3, h=topHeight+2, $fn=15);
-    translate([topWidth/2, Length-3, -0.2]) cylinder(d1=6, d2=3, h=2.2, $fn=15);
+    translate([topWidth/2, Length-3, -0.1]) cylinder(d1=6.5, d2=3, h=2.2, $fn=15);
     
     //clip
     translate([-1, clip, topHeight-0.7]) cube([topWidth+2, beltWidth, 2]);
