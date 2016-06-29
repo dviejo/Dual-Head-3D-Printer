@@ -21,8 +21,8 @@
  * extruderCommons.scad file to fit your needs. Constants trackerDiam and filament_d.
  */
 
-include<../Commons/extruderCommons.scad>
-include<../Commons/idler.scad>
+include<./extruderCommons.scad>
+include<./idler.scad>
 
 carriagePos = -4.5;
 
@@ -48,18 +48,31 @@ module DViejosCompactExtruder()
 	    }
 	  }
 	}
+    //lower plate
+      translate([-trackerDiam/2 - AjusteNozzle+2, 5, -baseHeight - mainHeight/2-offset])
+	hull()
+	{
+	  for(i = [-1, 1])
+	  {
+	    for(j = [-1, 0])
+	    {
+	      translate([i*15.5, j*30, 0]) cylinder(r=5, h=10);
+	      
+	    }
+	  }
+	}
     }
     
     
-    translate([0, carriagePos-4, 0]) rotate([-90, 0, 0]) extruderMount();
+    translate([0, carriagePos-4.5, 0]) rotate([-90, 0, 0]) extruderMount();
     
     base("remove");
     
-    //xcarriage holes for PowerCode/Hephestos XCarriage
-    for(i=[-1, 1])
+    //xcarriage holes
+    for(i=[-1, 1]) for(j=[0, 1])
     {
-      #translate([i*15-2, carriagePos, -25]) cylinder(r=1.65, h=50);
-      translate([i*15-2, carriagePos, baseHeight - mainHeight/2 - offset]) cylinder(r=3.3, h=50);
+      translate([i*10, carriagePos-j*20, -25]) cylinder(d=5.5, h=50);
+      translate([i*10, carriagePos-j*20, baseHeight - mainHeight/2 - offset]) cylinder(d=9, h=50);
     }
   }
 }
