@@ -32,16 +32,16 @@ difference()
         translate([0, 20, 0])
         hull()
         {
-            cube([5, Wall, Floor]);
-            translate([0, Wall+25, 0]) cube([5, Wall, Floor]);
-            translate([0, 0, 25]) cube([5, Wall, Floor]);
+            cube([3.5, Wall, Floor]);
+            translate([0, Wall+25, 0]) cube([3.5, Wall, Floor]);
+            translate([0, 0, 25]) cube([3.5, Wall, Floor]);
         }
-        translate([Width-5, 20, 0])
+        translate([Width-3.5, 20, 0])
         hull()
         {
-            cube([5, Wall, Floor]);
-            translate([0, Wall+25, 0]) cube([5, Wall, Floor]);
-            translate([0, 0, 25]) cube([5, Wall, Floor]);
+            cube([3.5, Wall, Floor]);
+            translate([0, Wall+25, 0]) cube([3.5, Wall, Floor]);
+            translate([0, 0, 25]) cube([3.5, Wall, Floor]);
         }
     }
     
