@@ -136,16 +136,16 @@ jhHeight2 = 4.6 - 0.25;
 jhHeight3 = 15; 
 
 //TODO Next should be set by the method who calls extruderMount.
- height1 = e3dHeight1;
- height2 = e3dHeight2;
- height3 = e3dHeight3; 
- diam = e3dDiam;
- diam2 = e3dDiam2;
-//height1 = jhHeight1;
-//height2 = jhHeight2;
-//height3 = jhHeight3; 
-//diam = jhDiam;
-//diam2 = jhDiam2;
+//  height1 = e3dHeight1;
+//  height2 = e3dHeight2;
+//  height3 = e3dHeight3; 
+//  diam = e3dDiam;
+//  diam2 = e3dDiam2;
+height1 = jhHeight1;
+height2 = jhHeight2;
+height3 = jhHeight3; 
+diam = jhDiam;
+diam2 = jhDiam2;
 
 /**
  * Grooved extruder mounting
@@ -224,7 +224,7 @@ module extruderMountB() translate([0, 0, -height1-height2-mountB_H3])
     union()
     {
       translate([-(diam-0.4)/2, 0, 0]) cube([diam-0.4, diam/2+3, height1+height2+mountB_H3]);
-      translate([-35/2, diam/2+2, 0]) cube([35, 7, height1+height2+mountB_H3]);
+      translate([-35/2, diam/2+2, 0]) cube([35, 9, height1+height2+mountB_H3]);
     }
     
     translate([0, 0, -1]) cylinder(d=diam, h=1+mountB_H3);
@@ -245,6 +245,7 @@ module extruderMountB() translate([0, 0, -height1-height2-mountB_H3])
 	cylinder(r=3.2, h=6);
 
     }
+    translate([0, diam/2+2+9-3.5, -1]) cylinder(d=2.75, h=15);
   }
   
 }
