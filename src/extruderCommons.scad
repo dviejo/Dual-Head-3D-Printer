@@ -224,7 +224,7 @@ module extruderMountB() translate([0, 0, -height1-height2-mountB_H3])
     union()
     {
       translate([-(diam-0.4)/2, 0, 0]) cube([diam-0.4, diam/2+3, height1+height2+mountB_H3]);
-      translate([-35/2, diam/2+2, 0]) cube([35, 9, height1+height2+mountB_H3]);
+      translate([-35/2, diam/2+2, 0]) cube([35, 7+2, height1+height2+mountB_H3]);
     }
     
     translate([0, 0, -1]) cylinder(d=diam, h=1+mountB_H3);
