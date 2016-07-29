@@ -27,8 +27,8 @@ module belt_holder_beltcut(){
  translate([-66,-0.5+beltDepth,12]) rotate([45,0,0]) cube([67,15,15]);
  // Individual teeth
  for ( i = [0 : 23] ){
-  translate([0-i*belt_tooth_distance+position_tweak,-0.5+beltDepth-2,4]) 
-    cube([belt_tooth_distance-belt_tooth_ratio,2.8,15]);
+  translate([0-i*belt_tooth_distance+position_tweak,-0.5+beltDepth-1.5,4]) 
+    cube([belt_tooth_distance-belt_tooth_ratio,2.3,15]);
  }
  // Middle opening
  translate([-2-20,-1,4]) cube([4,11,15]);	
