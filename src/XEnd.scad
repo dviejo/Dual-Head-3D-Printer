@@ -15,6 +15,10 @@
     // Longitud del Beam = 400mm
 
 
+    
+totalWidth = 467.5;
+beamWidth = 400;
+    
 Nema17Width = 42.3; //3.5;
 Nema17Holes = 31;
 
@@ -23,11 +27,11 @@ BeamHoleSep = 25;
 BeamLength = 12.2;
 
 Width = 90;
-Length = 25;
+Length = 13;
 Wall = 7;
 Floor = 9;
-Height = Nema17Width + Floor + 7;
-motorAngle = 27.5;
+Height = Nema17Width + Floor + 0;
+motorAngle = 0; //27.5;
 
 threadDiam = 13;
 threadHoles = 30; //distance between holes in the nut
@@ -37,7 +41,7 @@ threadLength = 17.15;
 ThreadHeight = 30.2;
 ThreadPos = 29.3 - 13 - threadLength/2;
 
-rotate([-90, 0, 0])
+*rotate([-90, 0, 0])
 XEndV();
 
 translate([0, -15, 0])
@@ -88,7 +92,7 @@ module XEndVHoles()
     
     
     //nema 17 housing
-    translate([Width/2+7, -30, Height-15]) rotate([-90, 0, 0])
+    translate([Width/2+7, -30, Height-20]) rotate([-90, 0, 0])
     translate([-Nema17Holes/2, Nema17Holes/2, 0]) rotate(motorAngle) translate([Nema17Holes/2, -Nema17Holes/2, 0])
     {
         for(i=[-1, 1]) 
@@ -103,19 +107,23 @@ module XEndVHoles()
             {
                 cylinder(d=20, h=Height+2);
                 translate([0, -35, 0]) cylinder(d=20, h=Height+2);
-                translate([25, 2, 0]) cylinder(d=20, h=Height+2);
+                translate([55, 5, 0]) cylinder(d=20, h=Height+2);
                 translate([60, -10, 0]) cylinder(d=20, h=Height+2);
             }
 
     }
     
     //Thread nut holes
-    translate([(threadWidth-threadHoles)/2-10, Wall+1, ThreadHeight/2]) rotate([90, 0, 0])
-        cylinder(d=3.0, h=Height);
-    translate([(threadWidth+threadHoles)/2-10, Wall+1, (ThreadHeight-threadHolesV)/2]) rotate([90, 0, 0])
-        cylinder(d=3.0, h=Height);
-    translate([(threadWidth+threadHoles)/2-10, Wall+1, (ThreadHeight+threadHolesV)/2]) rotate([90, 0, 0])
-        cylinder(d=3.0, h=Height);
+    //TODO adapt this to L and R sides. Now is for R
+    translate([(threadWidth+threadHoles)/2-10, Wall+1, ThreadHeight/2]) rotate([90, 0, 0])
+        cylinder(d=2.7, h=Height);
+
+    translate([(threadWidth-threadHoles)/2-10, Wall+1, (ThreadHeight-threadHolesV)/2]) rotate([90, 0, 0])
+        cylinder(d=2.7, h=Height);
+
+    translate([(threadWidth-threadHoles)/2-10, Wall+1, (ThreadHeight+threadHolesV)/2]) rotate([90, 0, 0])
+        cylinder(d=2.7, h=Height);
+        
     translate([-10-1, -ThreadPos+Wall-30, 0]) cube([threadWidth+1, 30,ThreadHeight]);
     hull()
     {
@@ -125,11 +133,14 @@ module XEndVHoles()
     
 
     //XAxis housing
-    translate([15+(467.5-400)/2+12.5, 5-Length, -6]) cylinder(d=3.0, h=Floor+8); 
-    translate([15+(467.5-400)/2+12.5+BeamHoleSep, 5-Length, -6]) cylinder(d=3.0, h=Floor+8);
-    translate([15+(467.5-400)/2+12.5, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6); 
-    translate([15+(467.5-400)/2+12.5+BeamHoleSep, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6);
-    translate([15+(467.5-400)/2-0.25, 5-Length-BeamLength/2, Floor-2]) cube([Width, BeamLength, 3]);
+    translate([15+(totalWidth-beamWidth)/2+12.5, 20, -5+(Floor+5)/2]) 
+        rotate([90, 0, 0]) cylinder(d=3.0, h=50); 
+    translate([15+(totalWidth-beamWidth)/2+12.5+BeamHoleSep, 20, -5+(Floor+5)/2]) 
+        rotate([90, 0, 0]) cylinder(d=3.0, h=50);
+    *translate([15+(totalWidth-beamWidth)/2+12.5, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6); 
+    *translate([15+(totalWidth-beamWidth)/2+12.5+BeamHoleSep, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6);
+    
+    #translate([15+(totalWidth-beamWidth)/2-0.25, -1-Length-BeamLength/2, -10]) cube([Width, BeamLength, 33]);
 
     //fancy cuts
     translate([-1, -1, Height-15]) rotate([0, -30, 0]) cube([35, Wall+2, 15]);
