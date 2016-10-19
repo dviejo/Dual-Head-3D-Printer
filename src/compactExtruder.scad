@@ -71,8 +71,8 @@ module DViejosCompactExtruder()
     //xcarriage holes
     for(i=[-1, 1]) for(j=[0, 1])
     {
-      translate([i*10, carriagePos-j*20, -25]) cylinder(d=5.5, h=50);
-      translate([i*10, carriagePos-j*20, baseHeight - mainHeight/2 - offset]) cylinder(d=9, h=50);
+      translate([i*10.75, carriagePos-j*20, -25]) cylinder(d=5.5, h=50);
+      translate([i*10.75, carriagePos-j*20, baseHeight - mainHeight/2 - offset - 5]) cylinder(d=9, h=50);
     }
   }
 }
