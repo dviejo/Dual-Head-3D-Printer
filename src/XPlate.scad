@@ -7,7 +7,7 @@
  * 
  */
 
-Height = 3.5;
+Height = 9;
 extraH = 2.5;
 Width = 38;
 Length = 40+11;
@@ -32,25 +32,10 @@ translate([-39, 0, 0])
 translate([-51, 0, 0])
     topArm(clip=38, clear=23);
 
-module XPlate()
+module XPlate(l = Length)
 difference()
 {
-    union()
-    {
-        cube([Width, Length, Height]);
-        for(i=[0, 20]) for(j=[0, 20])
-            translate([9+i, 10+j, 0]) cylinder(d=5, h=Height+extraH, $fn=25);
-    }
-    
-    for(i=[0, 20]) for(j=[0, 20])
-        translate([9+i, 10+j, -1]) cylinder(d=3, h=Height+extraH+2, $fn=15);
-    
-    for(i=[0, 20])
-    {
-        translate([9+i, Length-6/2, -1]) cylinder(d=3, h=Height+extraH+2, $fn=15);
-        translate([9+i, Length-6/2, Height-2]) cylinder(d=6, h=4, $fn=6);
-        translate([9+i, 10+20, -0.1]) cylinder(d1=6.5, d2=3, h=2.2, $fn=15);
-    }
+    cube([Width, l, Height]);
 }
 
 

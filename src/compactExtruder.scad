@@ -3,7 +3,7 @@
  * 
  * created by Diego Viejo
  * 
- * Bill Of Materials
+ * Bill Of Materials (Outdated)
  * 
  * 2 m3x16 bolts (hotend)- check
  * 2 m3 nuts
@@ -21,11 +21,16 @@
  * extruderCommons.scad file to fit your needs. Constants trackerDiam and filament_d.
  */
 
+
+//Distance from X axle to Xmotor pulley: 50mm.
 include<./extruderCommons.scad>
 include<./idler.scad>
 
 carriagePos = -4.5;
 
+XMotorAxleDistance = 50;
+XMotorPulleyDiam = 20; //TODO: check pulley diam
+XPlateHeight = 9; //got from XPlate.scad Height parameter. TODO: move this value to a config file
 
 
 module DViejosCompactExtruder()
@@ -71,9 +76,13 @@ module DViejosCompactExtruder()
     //xcarriage holes
     for(i=[-1, 1]) for(j=[0, 1])
     {
-      translate([i*10.75, carriagePos-j*20, -25]) cylinder(d=5.5, h=50);
-      translate([i*10.75, carriagePos-j*20, baseHeight - mainHeight/2 - offset - 5]) cylinder(d=9, h=50);
+      translate([i*10.75, carriagePos-j*20, -25]) cylinder(d=3.3, h=50, $fn=20);
+      translate([i*10.75, carriagePos-j*20, baseHeight - mainHeight/2 - offset - 5]) cylinder(d=6.3, h=50);
     }
+    
+    //xPlate holes
+    for(i=[-1, 1])
+        #translate([i*10 - 5, carriagePos+XMotorAxleDistance+XPlateHeight/2, -1]) cylinder(d=3.4, h=20);
   }
 }
 

@@ -93,7 +93,9 @@ module XEndVHoles()
     
     //nema 17 housing
     translate([Width/2+7, -30, Height-20]) rotate([-90, 0, 0])
-    translate([-Nema17Holes/2, Nema17Holes/2, 0]) rotate(motorAngle) translate([Nema17Holes/2, -Nema17Holes/2, 0])
+//        translate([-Nema17Holes/2, Nema17Holes/2, 0]) 
+//            rotate(motorAngle) 
+//                translate([Nema17Holes/2, -Nema17Holes/2, 0])
     {
         for(i=[-1, 1]) 
             for(j=[-1, 1])
@@ -137,10 +139,8 @@ module XEndVHoles()
         rotate([90, 0, 0]) cylinder(d=3.0, h=50); 
     translate([15+(totalWidth-beamWidth)/2+12.5+BeamHoleSep, 20, -5+(Floor+5)/2]) 
         rotate([90, 0, 0]) cylinder(d=3.0, h=50);
-    *translate([15+(totalWidth-beamWidth)/2+12.5, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6); 
-    *translate([15+(totalWidth-beamWidth)/2+12.5+BeamHoleSep, 5-Length, -6]) cylinder(d=6.5, h=8, $fn=6);
     
-    #translate([15+(totalWidth-beamWidth)/2-0.25, -1-Length-BeamLength/2, -10]) cube([Width, BeamLength, 33]);
+    translate([15+(totalWidth-beamWidth)/2-0.25, -1-Length-BeamLength/2, -10]) cube([Width, BeamLength, 33]);
 
     //fancy cuts
     translate([-1, -1, Height-15]) rotate([0, -30, 0]) cube([35, Wall+2, 15]);
