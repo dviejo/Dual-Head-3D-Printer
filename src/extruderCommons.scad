@@ -73,12 +73,12 @@ module base(action) translate([-trackerDiam/2 - AjusteNozzle, 15.5*2+5, -baseHei
 		    translate([-15.5, 0, -1]) rotate(30) translate([0, 5+correction*2, 0]) rotate(-60 - 9 / 2) translate([-15, 5, 0]) cube([50, 20, mainHeight + baseHeight*2+2]);
 		    translate([-7, -6, -1]) cube([30, 40, mainHeight + baseHeight*2+2]);
 		  }
-		  translate([-10, -20, -2]) cube([100, 25, baseHeight+2]);
+		  translate([-20, -20, -2]) cube([100, 27, baseHeight+2]);
 		}
 		//Springs
-		#translate([-15.5, 0, baseHeight + mainHeight / 2+offset+3]) rotate([90, 0, 150 - 4.5]) translate([5, 0, 5.5+correction*1.25]) 
+		translate([-15.5, 0, baseHeight + mainHeight / 2+offset+3]) rotate([90, 0, 150 - 4.5]) translate([5, 0, 5.5+correction*1.25]) 
 		  cylinder(r = spring_d * 7/12, h = 10, $fn = 6);
-		#translate([-15.5, 0, baseHeight + mainHeight / 2+offset-9]) rotate([90, 0, 150 - 4.5]) translate([5, 0, 5.5+correction*1.25]) 
+		translate([-15.5, 0, baseHeight + mainHeight / 2+offset-9]) rotate([90, 0, 150 - 4.5]) translate([5, 0, 5.5+correction*1.25]) 
 		  cylinder(r = spring_d * 7/12, h = 10, $fn = 6);
 		//hole for filament intake
 		translate([trackerDiam/2 + AjusteNozzle, -60, baseHeight + mainHeight/2+offset]) rotate([-90, 0, 0]) cylinder(r=1.85, h=100, $fn = 25);
