@@ -22,13 +22,13 @@
  */
 
 
-//Distance from X axle to Xmotor pulley: 29.3mm.
+//Distance from X axle to Xmotor pulley: 19.3mm.
 include<./extruderCommons.scad>
 include<./idler.scad>
 
 carriagePos = -5.5;
 
-XMotorAxleDistance = 29.3;
+XMotorAxleDistance = 19.3;
 XMotorPulleyDiam = 20; //TODO: check pulley diam
 XPlateHeight = 9; //got from XPlate.scad Height parameter. TODO: move this value to a config file
 
@@ -64,7 +64,7 @@ module DViejosCompactExtruder()
 	      translate([i*15.5, j*30, 0]) cylinder(r=5, h=6);
 	      
 	    }
-	    for(j = [1, 0])
+*	    for(j = [1, 0])
 	      translate([i*15.5, j*33, 0]) cylinder(r=5, h=6);
 	  }
 	}
@@ -78,8 +78,8 @@ module DViejosCompactExtruder()
     //xcarriage holes
     for(i=[-1, 1]) for(j=[0, 1])
     {
-      translate([i*10.75, carriagePos-j*20, -25]) cylinder(d=3.3, h=50, $fn=20);
-      translate([i*10.75, carriagePos-j*20, baseHeight - mainHeight/2 - offset - 5]) cylinder(d=6.3, h=50);
+      translate([i*10, carriagePos-j*20, -25]) cylinder(d=3.3, h=50, $fn=20);
+      translate([i*10, carriagePos-j*20, baseHeight - mainHeight/2 - offset - 5]) cylinder(d=6.3, h=50);
     }
     
     //xPlate holes
@@ -97,3 +97,5 @@ DViejosCompactExtruder();
 translate([-45, 10, mountB_H3+0.25+2]) rotate([-90, 0, 90])  //uncomment this for printing, comment for modeling
     extruderMountB();
 translate([42, 25, -baseHeight - mainHeight/2-offset]) rotate(210) idler();
+
+translate([-20, -38+51.5, -25]) cube([40, 2, 6]);
