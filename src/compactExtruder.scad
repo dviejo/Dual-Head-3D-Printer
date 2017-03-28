@@ -29,7 +29,7 @@ include<./idler.scad>
 carriagePos = -5.5;
 
 XMotorAxleDistance = 19.3;
-XMotorPulleyDiam = 20; //TODO: check pulley diam
+XMotorPulleyDiam = 12; //TODO: check pulley diam
 XPlateHeight = 9; //got from XPlate.scad Height parameter. TODO: move this value to a config file
 
 
@@ -61,11 +61,10 @@ module DViejosCompactExtruder()
 	  {
 	    for(j = [-1, 0])
 	    {
-	      translate([i*15.5, j*30, 0]) cylinder(r=5, h=6);
+#	      translate([i*15.5, j*30, 0]) cylinder(r=5, h=6);
 	      
 	    }
-*	    for(j = [1, 0])
-	      translate([i*15.5, j*33, 0]) cylinder(r=5, h=6);
+
 	  }
 	}
     }
@@ -85,10 +84,10 @@ module DViejosCompactExtruder()
     //xPlate holes
     for(i=[-1, 1])
     {
-        translate([i*8, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+2, -20]) 
+        translate([i*13-4, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+1.5, -20]) 
             cylinder(d=3.4, h=20, $fn=16);
-        translate([i*8, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+2, -baseHeight- mainHeight/2-offset + 6 - 1.9]) 
-            cylinder(d1=3.4, d2=6.05, h=2, $fn=16);
+        translate([i*13-4, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+1.5, -baseHeight- mainHeight/2-offset + 6 - 1.9]) 
+            cylinder(d1=3.4, d2=6.25, h=2, $fn=16);
     }
   }
 }
@@ -98,4 +97,4 @@ translate([-45, 10, mountB_H3+0.25+2]) rotate([-90, 0, 90])  //uncomment this fo
     extruderMountB();
 translate([42, 25, -baseHeight - mainHeight/2-offset]) rotate(210) idler();
 
-translate([-20, -38+51.5, -25]) cube([40, 2, 6]);
+translate([-30, -30+51.5, -25]) cube([60, 1.5, 6]);

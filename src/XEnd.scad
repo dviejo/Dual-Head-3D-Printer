@@ -135,7 +135,7 @@ module XEndVHoles()
     
 
     //XAxis housing
-    translate([15+(totalWidth-beamWidth)/2+12.5, 20, -5+(Floor+5)/2]) //-5+(Floor+5)/2 = 2
+    #translate([15+(totalWidth-beamWidth)/2+12.5, 20, -5+(Floor+5)/2]) //-5+(Floor+5)/2 = 2
         rotate([90, 0, 0]) cylinder(d=3.0, h=50); 
     translate([15+(totalWidth-beamWidth)/2+12.5+BeamHoleSep, 20, -5+(Floor+5)/2]) 
         rotate([90, 0, 0]) cylinder(d=3.0, h=50);
