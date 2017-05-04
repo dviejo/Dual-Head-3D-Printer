@@ -29,7 +29,7 @@ include<./idler.scad>
 carriagePos = -5.5;
 
 XMotorAxleDistance = 19.3;
-XMotorPulleyDiam = 12; //TODO: check pulley diam
+
 //XPlateHeight = 9; //got from extruderCommons
 
 

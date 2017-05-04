@@ -30,12 +30,15 @@ ptfeTubeRad = 3.2;
 simpleTubeRad = 1.9;
 tubeRad = simpleTubeRad;
 
+
+XMotorPulleyDiam = 12; //TODO: check pulley diam
+
 //For XPlate
 XPlateHeight = 9;
 XPlateHoleDist = 13;
-XPlateBelt1 = 12;
-XPlateBelt2=24;
-
+XPlateBelt1 = 6.8;
+XPlateBelt2=19.7;
+XPlateLength = 25.5;
 
 /**
  * module base. Creates the minimal piece for direct extrusion
