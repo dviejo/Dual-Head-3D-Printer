@@ -30,7 +30,7 @@ carriagePos = -5.5;
 
 XMotorAxleDistance = 19.3;
 XMotorPulleyDiam = 12; //TODO: check pulley diam
-XPlateHeight = 9; //got from XPlate.scad Height parameter. TODO: move this value to a config file
+//XPlateHeight = 9; //got from extruderCommons
 
 
 module DViejosCompactExtruder()
@@ -84,9 +84,9 @@ module DViejosCompactExtruder()
     //xPlate holes
     for(i=[-1, 1])
     {
-        translate([i*13-4, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+1.5, -20]) 
+        translate([i*XPlateHoleDist-4, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+1.5, -20]) 
             cylinder(d=3.4, h=20, $fn=16);
-        translate([i*13-4, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+1.5, -baseHeight- mainHeight/2-offset + 6 - 1.9]) 
+        translate([i*XPlateHoleDist-4, carriagePos+XMotorAxleDistance+XPlateHeight/2+XMotorPulleyDiam/2+1.5, -baseHeight- mainHeight/2-offset + 6 - 1.9]) 
             cylinder(d1=3.4, d2=6.25, h=2, $fn=16);
     }
   }

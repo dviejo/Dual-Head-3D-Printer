@@ -7,9 +7,11 @@
  * 
  */
 
-Height = 9;
+include<./extruderCommons.scad>
+
+Height = 20;
 Width = 38;
-Length = 40+11;
+Length = 35;
 
 beltWidth = 7.5;
 beltHeight = 4;
@@ -31,19 +33,19 @@ XPlate();
 *translate([-51, 0, 0])
     topArm(clip=38, clear=23);
 
-module XPlate(l = Length)
+module XPlate(l = XPlateBelt1)
 difference()
 {
-    cube([Width, l, Height]);
+    cube([Width, Length, Height]);
     
     for(i=[-1, 1])
     {
-        translate([i*8 + Width/2, -1, Height/2]) rotate([-90, 0, 0]) cylinder(d=3.2, h=25, $fn=16);
+        translate([i*XPlateHoleDist + Width/2, -1, XPlateHeight/2]) rotate([-90, 0, 0]) cylinder(d=3.2, h=25, $fn=16);
         
         hull()
         {
-            translate([i*8 + Width/2, 5, Height+5]) rotate([-90, 30, 0]) cylinder(d=6.6, h=2.5, $fn=6);
-            translate([i*8 + Width/2, 5, -5]) rotate([-90, 30, 0]) cylinder(d=6.6, h=2.5, $fn=6);
+            translate([i*XPlateHoleDist + Width/2, 2, XPlateHeight/2+0.5]) rotate([-90, 30, 0]) cylinder(d=6.7, h=2.5, $fn=6);
+            translate([i*XPlateHoleDist + Width/2, 2, -5]) rotate([-90, 30, 0]) cylinder(d=6.7, h=2.5, $fn=6);
         }
 
     }

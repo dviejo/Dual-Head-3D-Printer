@@ -30,6 +30,13 @@ ptfeTubeRad = 3.2;
 simpleTubeRad = 1.9;
 tubeRad = simpleTubeRad;
 
+//For XPlate
+XPlateHeight = 9;
+XPlateHoleDist = 13;
+XPlateBelt1 = 12;
+XPlateBelt2=24;
+
+
 /**
  * module base. Creates the minimal piece for direct extrusion
  * 
