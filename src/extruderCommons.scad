@@ -39,6 +39,8 @@ XPlateHoleDist = 13;
 XPlateBelt1 = 6.8;
 XPlateBelt2=19.7;
 XPlateLength = 25.5;
+belt_tooth_distance = 2;
+belt_tooth_ratio = 0.8; //0.675//0.5;
 
 /**
  * module base. Creates the minimal piece for direct extrusion
