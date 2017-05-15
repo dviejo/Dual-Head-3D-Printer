@@ -73,5 +73,10 @@ difference()
 
     }
     
+    //tensor bolts
+    translate([-1, l, XMotorPulleyDiam/2]) rotate([0, 90, 0]) cylinder(d=3.3, h=Width/2, $fn=15);
+    translate([Width/2-6.5, l, XMotorPulleyDiam/2]) rotate([0, 90, 0]) cylinder(d=7, h=6.5, $fn=25);
+    translate([Width/2-9, l, XMotorPulleyDiam/2]) rotate([0, 90, 0]) cylinder(d=6.7, h=9, $fn=6);
+    
 }
 
