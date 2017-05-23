@@ -43,12 +43,13 @@ difference()
     //Extruder attachment
     for(i=[-1, 1])
     {
-        translate([i*XPlateHoleDist + Width/2, -1, XPlateHeight/2]) rotate([-90, 0, 0]) cylinder(d=3.2, h=l-XPlateBelt1 + 4, $fn=16);
+        translate([i*XPlateHoleDist + Width/2, -1, XPlateHeight/2]) rotate([-90, 0, 0]) 
+            cylinder(d=3.2, h= 4, $fn=16);
         
         hull()
         {
-            translate([i*XPlateHoleDist + Width/2, l-XPlateBelt1 + 2, XPlateHeight/2+0.5]) rotate([-90, 30, 0]) cylinder(d=6.7, h=2.5, $fn=6);
-            translate([i*XPlateHoleDist + Width/2, l-XPlateBelt1 + 2, -5]) rotate([-90, 30, 0]) cylinder(d=6.7, h=2.5, $fn=6);
+            translate([i*XPlateHoleDist + Width/2, 2, XPlateHeight/2+0.5]) rotate([-90, 30, 0]) cylinder(d=6.7, h=2.5, $fn=6);
+            translate([i*XPlateHoleDist + Width/2, 2, -5]) rotate([-90, 30, 0]) cylinder(d=6.7, h=2.5, $fn=6);
         }
     }
     
@@ -69,7 +70,7 @@ difference()
     for(i=[1:25])
     {
         translate([-3+i*belt_tooth_distance,l-beltWidth/2,XMotorPulleyDiam]) 
-            cube([belt_tooth_distance-belt_tooth_ratio,beltWidth+1,3.5]);
+            cube([belt_tooth_distance-belt_tooth_ratio,beltWidth+1,2.5]);
 
     }
     

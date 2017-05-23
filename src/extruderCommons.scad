@@ -36,9 +36,9 @@ XMotorPulleyDiam = 12; //TODO: check pulley diam
 //For XPlate
 XPlateHeight = 9;
 XPlateHoleDist = 13;
-XPlateBelt1 = 6.8;
-XPlateBelt2=19.7;
-XPlateLength = 25.5;
+XPlateBelt1 = 7.8;
+XPlateBelt2=20.7;
+XPlateLength = 26.5;
 belt_tooth_distance = 2;
 belt_tooth_ratio = 0.8; //0.675//0.5;
 
