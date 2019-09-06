@@ -26,6 +26,8 @@ b = b1 + b2;
 
 endstopSeparation = 10;
 
+
+module XEndStopHolder()
 difference()
 {
     union()
@@ -76,3 +78,6 @@ difference()
     //fancy
     translate([0, a, 0]) rotate(45) cube(15, center=true);
 }
+
+XEndStopHolder();
+translate([b*2+5, 0, 0]) mirror([1, 0 ,0]) XEndStopHolder();
