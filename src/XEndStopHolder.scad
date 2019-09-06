@@ -72,4 +72,7 @@ difference()
     //zendstop adjustment socket
     translate([3 + 7/2, -1, 4 + 7/2])  rotate([-90, 0, 0]) cylinder(d=2.6, h=20, $fn=10);
     translate([3 + 7/2, 7-3, 4 + 7/2])  rotate([-90, 0, 0]) cylinder(d=6.5, h=5, $fn=6);
+    
+    //fancy
+    translate([0, a, 0]) rotate(45) cube(15, center=true);
 }
