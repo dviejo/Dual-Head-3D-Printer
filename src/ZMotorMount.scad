@@ -11,8 +11,8 @@ Floor = 5;
 Width = 42.3 + 5 + 5;
 Wall = 8;
 Length = 42.3 + Wall + 20;
-Height = 40;
-MotorPos = 20 + 29.3;
+Height = 34;
+MotorPos = 20 + 28.3;
 
 Nema17Holes = 31;
 
@@ -27,21 +27,21 @@ difference()
     union()
     {
         cube([Width, Length, Floor]);
-        cube([Width, Wall+20, Height]); 
+        cube([Width, Wall+20-2, Height]); 
         
         translate([0, 20, 0])
         hull()
         {
-            cube([3.5, Wall, Floor]);
-            translate([0, Wall+25, 0]) cube([3.5, Wall, Floor]);
-            translate([0, 0, 25]) cube([3.5, Wall, Floor]);
+            cube([2, Wall, Floor]);
+            translate([0, Wall+25, 0]) cube([2, Wall, Floor]);
+            translate([0, 0, 25]) cube([2, Wall, Floor]);
         }
-        translate([Width-3.5, 20, 0])
+        translate([Width-2, 20, 0])
         hull()
         {
-            cube([3.5, Wall, Floor]);
-            translate([0, Wall+25, 0]) cube([3.5, Wall, Floor]);
-            translate([0, 0, 25]) cube([3.5, Wall, Floor]);
+            cube([2, Wall, Floor]);
+            translate([0, Wall+25, 0]) cube([2, Wall, Floor]);
+            translate([0, 0, 25]) cube([2, Wall, Floor]);
         }
     }
     
@@ -54,8 +54,8 @@ difference()
     for(i=[-1, 1]) for(j=[-1, 1])
         hull()
         {
-            translate([(Width+i*Nema17Holes)/2-1.5, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=3.4, h=Floor+2);
-            translate([(Width+i*Nema17Holes)/2+1.5, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=3.4, h=Floor+2);
+            translate([(Width+i*Nema17Holes)/2-1.5, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=4, h=Floor+2, $fn=20);
+            translate([(Width+i*Nema17Holes)/2+1.5, MotorPos+(j*Nema17Holes)/2, -1]) cylinder(d=4, h=Floor+2, $fn=20);
         }
     translate([Width/2, MotorPos, -1]) cylinder(d=27, h=Floor+2);
     

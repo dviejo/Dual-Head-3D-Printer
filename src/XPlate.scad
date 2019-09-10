@@ -31,8 +31,6 @@ XPlate(l=XPlateBelt2);
 *%translate([-35, XPlateBelt1-beltWidth/2, XMotorPulleyDiam]) cube([100, beltWidth, beltHeight]);
 *%translate([-35, XPlateBelt2-beltWidth/2, XMotorPulleyDiam]) cube([100, beltWidth, beltHeight]);
 
-*translate([Width+5, 0, 0]) XPlate();
-
 
 module XPlate(l = XPlateBelt1)
 rotate([90, 0, 0])
@@ -44,7 +42,7 @@ difference()
     for(i=[-1, 1])
     {
         translate([i*XPlateHoleDist + Width/2, -1, XPlateHeight/2]) rotate([-90, 0, 0]) 
-            cylinder(d=3.2, h= 4, $fn=16);
+            cylinder(d=3.2, h=4, $fn=16);
         
         hull()
         {
@@ -78,6 +76,15 @@ difference()
     translate([-1, l, XMotorPulleyDiam/2]) rotate([0, 90, 0]) cylinder(d=3.3, h=Width/2, $fn=15);
     translate([Width/2-6.5, l, XMotorPulleyDiam/2]) rotate([0, 90, 0]) cylinder(d=7, h=6.5, $fn=25);
     translate([Width/2-9, l, XMotorPulleyDiam/2]) rotate([0, 90, 0]) cylinder(d=6.7, h=9, $fn=6);
+    
+    if(l>15)
+    {
+        hull()
+        {
+            translate([-1, XPlateBelt1-beltWidth/2-1, -1]) cube([Width+2, beltWidth+2,3]);
+            translate([-1, XPlateBelt1+beltWidth, -5]) cube([Width+2, 2,1]);
+        }
+    }
     
 }
 

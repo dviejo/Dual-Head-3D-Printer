@@ -11,12 +11,12 @@
 belt_tooth_distance = 2;
 belt_tooth_ratio = 0.8; //0.675//0.5;
 
-beltDepth = 28-19;
+beltDepth = 32-25;
 
 module belt_holder_base(){
- translate([-23-8.5,0,-1]) cube([23,15,16]); 
- translate([-23-8.5,11,-1]) cube([23,17,16]);
- translate([-40,24,-1]) cube([40,4,16]);	
+ translate([-22-9.0,0,-1]) cube([22,31,16]); 
+// translate([-23-8.5,11,-1]) cube([23,17,16]);
+ translate([-40,28,-1]) cube([40,4,16]);	
 }
 
 module belt_holder_beltcut(){
@@ -35,8 +35,8 @@ module belt_holder_beltcut(){
 }
 
 module belt_holder_holes(){
- translate([-4.65,0,7.5]) rotate([-90,0,0]) cylinder(h=30, r=1.7, $fn=10);
- translate([-40+4.65,0,7.5]) rotate([-90,0,0]) cylinder(h=30, r=1.7, $fn=10);
+ #translate([-5,0,7.5]) rotate([-90,0,0]) cylinder(h=30, r=1.7, $fn=10);
+ #translate([-40+5,0,7.5]) rotate([-90,0,0]) cylinder(h=30, r=1.7, $fn=10);
 }
 
 // Final part
