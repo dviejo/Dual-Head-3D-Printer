@@ -21,7 +21,7 @@ c = 5;
 d = 23;
 a = 15 + c + d;
 b2 = 7;
-b1 = 27;
+b1 = 28.5;
 b = b1 + b2;
 
 endstopSeparation = 10;
