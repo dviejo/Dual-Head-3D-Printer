@@ -20,7 +20,7 @@ MosquitoLength = 13;
 BQHorDist = 12;
 BQVertDist = 15;
 BQLowerDist = 28;
-BQLength = 20;
+BQLength = MosquitoLength+5;
 
 module BQHolder()
 difference()
@@ -29,13 +29,13 @@ difference()
     {
         hull()
         {
-            rotate([90, 0, 0]) cylinder(d=6, h=BQLength, $fn=20);
-            translate([MosquitoHolesDist+6, 0, 0]) rotate([90, 0, 0]) cylinder(d=6, h=BQLength, $fn=20);
+            rotate([90, 0, 0]) cylinder(d=6, h=BQLength+5, $fn=20);
+            translate([MosquitoHolesDist+6, 0, 0]) rotate([90, 0, 0]) cylinder(d=6, h=BQLength+5, $fn=20);
         }
         hull()
         {
-            rotate([90, 0, 0]) cylinder(d=6, h=BQLength, $fn=20);
-            translate([0, 0, -MosquitoHeight+BQLowerDist-3]) rotate([90, 0, 0]) cylinder(d=6, h=BQLength, $fn=20);
+            rotate([90, 0, 0]) cylinder(d=6, h=BQLength+5, $fn=20);
+            translate([0, 0, -MosquitoHeight+BQLowerDist-3]) rotate([90, 0, 0]) cylinder(d=6, h=BQLength+5, $fn=20);
         }
     }
     
@@ -44,10 +44,12 @@ difference()
     rotate([90, 0, 0]) translate([MosquitoHolesDist+6, 0, -10]) cylinder(d=3.2, h=BQLength+20, $fn=20);
 
     //mosquito core
-    translate([3, -MosquitoLength, -5]) cube([30, MosquitoLength+2, 10]);
+    translate([3, -BQLength, -5]) cube([30, BQLength+2, 10]);
     
     //bqFanHoles
-
+    #translate([10, -4, -MosquitoHeight+BQLowerDist]) rotate([0, -90, 0]) cylinder(d=2.5, h=40);
+    #translate([10, -4, -MosquitoHeight+BQLowerDist+BQVertDist]) rotate([0, -90, 0]) cylinder(d=2.5, h=40);
+    #translate([10, -4-BQHorDist, -MosquitoHeight+BQLowerDist]) rotate([0, -90, 0]) cylinder(d=2.5, h=40);
 }
 
 BQHolder();
