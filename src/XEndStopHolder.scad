@@ -21,7 +21,7 @@ c = 5;
 d = 23;
 a = 15 + c + d;
 b2 = 7;
-b1 = 28.5;
+b1 = 25.3;
 b = b1 + b2;
 
 endstopSeparation = 10;
@@ -57,16 +57,16 @@ difference()
     
     //x endstop
     for(i = [-1, 1])
-    {
+    {        
         hull()
         {
-            translate([b1-10, c + (15+i*endstopSeparation)/2, 5]) cylinder(d=1.5, h=11);
-            translate([b1-2, c + (15+i*endstopSeparation)/2, 5]) cylinder(d=1.5, h=11);
+            translate([b1-10, c + (15+i*endstopSeparation)/2, 5]) cylinder(d=1.5, h=10, $fn=10);
+            translate([b1-2, c + (15+i*endstopSeparation)/2, 5]) cylinder(d=1.5, h=10, $fn=10);
         }
         hull()
         {
-            translate([b1-10, c + (15+i*endstopSeparation)/2, 13]) cylinder(d=2.15, h=11);
-            translate([b1-2, c + (15+i*endstopSeparation)/2, 13]) cylinder(d=2.15, h=11);
+            translate([b1-10, c + (15+i*endstopSeparation)/2, 13]) cylinder(d1=1.5, d2=2.15, h=2.15, $fn=10);
+            translate([b1-2, c + (15+i*endstopSeparation)/2, 13]) cylinder(d1=1.5, d2=2.15, h=2.15, $fn=10);
         }
     }
     
@@ -80,4 +80,4 @@ difference()
 }
 
 XEndStopHolder();
-translate([b*2+5, 0, 0]) mirror([1, 0 ,0]) XEndStopHolder();
+//translate([b*2+5, 0, 0]) mirror([1, 0 ,0]) XEndStopHolder();
