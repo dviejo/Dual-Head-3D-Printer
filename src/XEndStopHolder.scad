@@ -45,8 +45,8 @@ difference()
         //xend platform
         hull()
         {
-            translate([b1-12.15, 0, 0]) cube([12, c+15+c, 15]);
-            translate([b1-17, 0, 0]) cube([15, c+15+c, 4]);
+            translate([Width-7-12.15, 0, 0]) cube([12, c+15+c, 15]);
+            translate([Width-7-17, 0, 0]) cube([15, c+15+c, 4]);
         }
     }
     
