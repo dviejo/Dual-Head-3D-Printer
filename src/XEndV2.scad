@@ -8,7 +8,7 @@
  */
 
     
-Width = 79.5;
+Width = 80;
 Length = 44;
 Height = 4;
 
@@ -22,9 +22,8 @@ ThreadPos = 8.55;
 //rotate([-90, 0, 0])
 XEndV();
 
-*translate([0, -15, 0])
-mirror([0, 1, 0])
-rotate([-90, 0, 0])
+translate([-2, 0, 0])
+mirror([1, 0, 0])
 XEndV();
 
 
@@ -46,8 +45,8 @@ union()
     //zendstop adjustment socket
     hull()
     {
-        translate([8.6+threadHoles-4, 0, 0]) cube([8, Height, 12.5]);
-        translate([8.6+threadHoles-4, 12.5, 0]) cube([8, Height, Height]);
+        translate([8.6+threadHoles-4+2.5, 0, 0]) cube([8, Height, 13]);
+        translate([8.6+threadHoles-4+2.5, 12.5, 0]) cube([8, Height, Height]);
     }
     
     //xend platform
@@ -66,9 +65,9 @@ module XEndVHoles()
     #translate([8.6, 21.5, -1])
         cylinder(d=3.3, h=Height+2);
     #translate([8.6, 21.5+threadHolesV, -1])
-        cylinder(d=2.7, h=Height+2);
+        cylinder(d=3.3, h=Height+2);
     #translate([8.6+threadHoles, 21.5+threadHolesV/2, -1]) 
-        cylinder(d=2.7, h=Height+2);
+        cylinder(d=3.5, h=Height+2);
         
     //thread rod
     #translate([8.6+threadHoles/2, -1, ThreadPos]) rotate([-90, 0, 0]) cylinder(d=10, h=Length+2);
@@ -78,8 +77,9 @@ module XEndVHoles()
             cylinder(d=3, h=Height+2);
     
     //zendstop adjustment socket
-    #translate([8.6+threadHoles, -1, Height + 7/2])  rotate([-90, 0, 0]) cylinder(d=2.6, h=20, $fn=10);
-    translate([8.6+threadHoles, -1, Height + 7/2])  rotate([-90, 0, 0]) cylinder(d=6.5, h=4, $fn=6);
+    #translate([8.6+threadHoles+2.5, -1, Height + 7/2])  rotate([-90, 0, 0]) cylinder(d=2.7, h=20, $fn=10);
+    translate([8.6+threadHoles+2.5, 9.25, Height + 7/2])  rotate([-90, 0, 0]) cylinder(d=5, h=20, $fn=10);
+    translate([8.6+threadHoles+2.5, -1, Height + 7/2])  rotate([-90, 0, 0]) cylinder(d=6.65, h=4, $fn=6);
 
     //x endstop
     for(i = [-1, 1])
@@ -103,13 +103,13 @@ module XEndVHoles()
             
     //X rail and fancy cuts
     translate([Width-XRail, -1, -1]) cube([7+1, 15+2+1, Height+2]);
+    translate([Width-(XRail-4), -1, -1]) cube([7+1, 25+2+1, Height+2]);
     
     difference()
     {
-        translate([45, 38, -1]) cube([35, 8, Height+2]);
-        translate([45, 30, -1]) rotate(45) cube([10, 10, Height+2]);
+        translate([46, 38, -1]) cube([36, 8, Height+2]);
+        translate([46, 30, -1]) rotate(45) cube([10, 10, Height+2]);
     }
-    *translate([Width+1, 31.5, -1]) rotate(45) cube([10, 10, Height+2]);
 }
 
 module XEndV()
